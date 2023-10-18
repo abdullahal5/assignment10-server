@@ -38,6 +38,12 @@ async function run() {
         res.send(result)
     })
 
+    app.get('/car', async(req, res) =>{
+      const cursor = carCollection.find()
+      const result = await cursor.toArray()
+      res.send(result)
+    })
+
 
 
     await client.db("admin").command({ ping: 1 });
