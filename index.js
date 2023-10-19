@@ -71,10 +71,16 @@ async function run() {
       res.send(result)
     })
 
-    app.post('/infoData', async(req, res) =>{
-      const user = req.body
-      console.log(user)
-      const result = await infoCollection.insertOne(user)
+    app.post('/info', async(req, res)=>{
+      const use = req.body
+      console.log(use)
+      const result = await infoCollection.insertOne(use)
+      res.send(result)
+    })
+
+    app.get('/info', async(req, res) =>{
+      const cursor= infoCollection.find()
+      const result = await cursor.toArray()
       res.send(result)
     })
     
