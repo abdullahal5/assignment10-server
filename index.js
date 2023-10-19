@@ -30,6 +30,7 @@ async function run() {
     await client.connect();
 
     const carCollection = client.db('carsDB').collection('cars')
+    const infoCollection = client.db('infoDB').collection('info')
 
     app.post('/car', async(req, res) =>{
         const user = req.body
@@ -69,6 +70,13 @@ async function run() {
       const result = await carCollection.findOne(query)
       res.send(result)
     })
+
+    app.post('/infoData', async(req, res) =>{
+      const user = req.body
+      console.log(user)
+      const result = await infoCollection.insertOne(user)
+      res.send(result)
+    })
     
 
  
@@ -82,11 +90,6 @@ async function run() {
 run().catch(console.dir);
 
 
-
-
-
-
-
 app.listen(port, () =>{
     console.log(`server is running on port: ${port}`)
 })
@@ -94,3 +97,10 @@ app.listen(port, () =>{
 
 
 // C6ZX8kKSlOLPdEEe
+
+// infoData -HzFacWP1zMuwrEah
+
+
+
+
+
