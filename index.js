@@ -43,6 +43,9 @@ async function run() {
       const result = await cursor.toArray()
       res.send(result)
     })
+    app.delete('/car/:id', async(req, res) =>{
+      
+    })
 
 
 
