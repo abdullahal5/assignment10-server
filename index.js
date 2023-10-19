@@ -49,6 +49,9 @@ async function run() {
       const result = await carCollection.findOne(query)
       res.send(result)
     })
+    app.put('/car/:id', async(req, res) =>{
+      
+    })
 
  
 
